@@ -35,19 +35,6 @@ def read_data(path):
 def getNeighbors(state):
     return two_opt_swap(state)
         
-def hill_climbing(state):
-    node = randint(1, len(state)-1)
-    neighbors = []
-    
-    for i in range(len(state)):
-        if i != node and i != 0:
-            tmp_state = state.copy()
-            tmp = tmp_state[i]
-            tmp_state[i] = tmp_state[node]
-            tmp_state[node] = tmp
-            neighbors.append(tmp_state)
-            
-    return neighbors
 
 def two_opt_swap(state):
     global neighborhood_size
@@ -93,8 +80,6 @@ def fitness(route, graph):
             
     return path_length
             
-def euclidean_distance(city1, city2):
-    return math.sqrt((city1[0] - city2[0])**2 + ((city1[1] - city2[1])**2))
 
 def weight_distance(city1, city2, graph):
     global max_fitness
@@ -164,8 +149,8 @@ max_fitness = 0
 start_node = 0
 solution, value, exec_time = tabu_search(r'C:\Users\azizz\Desktop\recherche-tabou\data.txt')
 
-print(solution)
-print(value)
-print(exec_time)
+print(F'Solution {solution}')
+print(F'value {value}')
+print(F'exec_time {exec_time}')
 
             
